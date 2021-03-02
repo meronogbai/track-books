@@ -1,5 +1,7 @@
 @import-normalize;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 :root {
   --primary-color: #42b5e8;
   --secondary-color: #97e493;
@@ -7,7 +9,53 @@
   --main-text-color: #5b8092;
 }
 
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 body {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
+}
+
+.Header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 2rem 0 1rem;
+  text-align: center;
+}
+
+.Form {
+  padding: 5rem 0;
+  margin-top: 5rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.Form input {
+  margin-left: 1rem;
+}
+
+.Btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
 }
