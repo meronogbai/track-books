@@ -1,0 +1,13 @@
+@import-normalize;
+
+:root {
+  --primary-color: #42b5e8;
+  --secondary-color: #97e493;
+  --main-bg-color: #f1f2f3;
+  --main-text-color: #5b8092;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
