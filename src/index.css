@@ -120,3 +120,9 @@ a {
   display: flex;
   justify-content: space-between;
 }
+
+.addChapter {
+  color: var(--secondary-color);
+  cursor: pointer;
+  margin-left: 1rem;
+}

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
 import { changeTitle } from '../redux/title';
 import { getBooks } from '../redux/books';
@@ -19,6 +21,9 @@ const Track = () => {
       history.push('/signup');
     }
   }, []);
+  const addChapter = book => {
+    console.log(book);
+  };
   let content = null;
   if (books.loading) {
     content = <Loading />;
@@ -32,6 +37,7 @@ const Track = () => {
             </h3>
             <div className="chapters">
               {`${book.completed_chapters}/${book.total_chapters}`}
+              <FontAwesomeIcon icon={faPlus} onClick={() => addChapter(book)} className="addChapter" />
             </div>
 
           </div>
