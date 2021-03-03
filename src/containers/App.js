@@ -1,7 +1,7 @@
 import {
   BrowserRouter, Redirect, Route, Switch,
 } from 'react-router-dom';
-import Home from '../components/Home';
+import AddBook from '../components/AddBook';
 import Header from '../components/Header';
 import Login from './Login';
 import Signup from './Signup';
@@ -14,9 +14,9 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            {token ? <Redirect to="/home" /> : <Signup />}
+            {token ? <Redirect to="/add-book" /> : <Signup />}
           </Route>
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/add-book" component={AddBook} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
         </Switch>

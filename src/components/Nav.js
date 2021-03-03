@@ -7,7 +7,7 @@ const { Link } = require('react-router-dom');
 
 const Nav = () => (
   <nav className="Nav">
-    <Link to="/home">
+    <Link to="/add-book">
       <FontAwesomeIcon icon={faPlus} size="lg" />
       <span>Add Book</span>
     </Link>

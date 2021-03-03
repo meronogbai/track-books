@@ -12,7 +12,7 @@ const Home = () => {
   const token = localStorage.getItem('token');
   const books = useSelector(state => state.books);
   useEffect(() => {
-    dispatch(changeTitle('Home'));
+    dispatch(changeTitle('Add Book'));
     if (token) {
       dispatch(getBooks(token));
     } else {
