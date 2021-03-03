@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { changeTitle } from '../redux/title';
+import Loading from './Loading';
 import Nav from './Nav';
+import API_URL from '../constants/url';
 
 const Home = () => {
   const history = useHistory();
@@ -10,6 +12,7 @@ const Home = () => {
   const [title, setTitle] = useState('');
   const [totalChapters, setTotalChapters] = useState('');
   const [completedChapters, setCompletedChapters] = useState('');
+  const [loading, setLoading] = useState(false);
   const token = localStorage.getItem('token');
   useEffect(() => {
     dispatch(changeTitle('Add Book'));
@@ -17,11 +20,33 @@ const Home = () => {
       history.push('/signup');
     }
   }, []);
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
+    setLoading(true);
+    const response = await fetch(`${API_URL}/books`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        title,
+        total_chapters: totalChapters,
+        completed_chapters: completedChapters,
+      }),
+    });
+    if (!response.ok) throw new Error(response.statusText);
+    setLoading(false);
+    setTitle('');
+    setTotalChapters('');
+    setCompletedChapters('');
   };
-  return (
-    <>
+  let content;
+  if (loading) {
+    content = <Loading />;
+  } else {
+    content = (
       <form className="Form" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -61,6 +86,11 @@ const Home = () => {
         />
         <button type="submit" className="Btn">Add Book</button>
       </form>
+    );
+  }
+  return (
+    <>
+      { content }
       <Nav />
     </>
   );
