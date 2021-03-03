@@ -1,13 +1,21 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Loading from './Loading';
 
 const Form = ({ type, action, endpoint }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.user.loading);
+  const user = useSelector(state => state.user);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const token = localStorage.getItem('token');
+  useEffect(() => {
+    if (token) {
+      history.push('/home');
+    }
+  }, [token]);
   const handleUsernameChange = e => {
     setUsername(e.target.value);
   };
@@ -19,7 +27,7 @@ const Form = ({ type, action, endpoint }) => {
     dispatch(action({ username, password, endpoint }));
   };
   let content;
-  if (loading) {
+  if (user.loading) {
     content = <Loading />;
   } else {
     content = (

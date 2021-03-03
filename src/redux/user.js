@@ -18,6 +18,7 @@ export const authUser = createAsyncThunk(
     });
     if (!response.ok) throw new Error(response.statusText);
     const data = await response.json();
+    localStorage.setItem('token', data.jwt);
     return data;
   },
 );
