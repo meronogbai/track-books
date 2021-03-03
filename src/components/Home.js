@@ -1,16 +1,19 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getBooks } from '../redux/books';
 import Loading from './Loading';
+import { changeTitle } from '../redux/title';
 
 const Home = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const token = localStorage.getItem('token');
   const books = useSelector(state => state.books);
   useEffect(() => {
+    dispatch(changeTitle('Home'));
     if (token) {
-      getBooks(token);
+      dispatch(getBooks(token));
     } else {
       history.push('/signup');
     }
