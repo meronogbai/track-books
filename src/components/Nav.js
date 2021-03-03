@@ -1,5 +1,5 @@
 import {
-  faChartPie, faEllipsisH, faPlus, faPoll,
+  faChartPie, faPlus, faPoll,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -19,10 +19,7 @@ const Nav = () => (
       <FontAwesomeIcon icon={faChartPie} size="lg" />
       <span>Progress</span>
     </Link>
-    <Link to="/home">
-      <FontAwesomeIcon icon={faEllipsisH} size="lg" />
-      <span>More</span>
-    </Link>
+
   </nav>
 );
 
