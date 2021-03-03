@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Form from '../components/Form';
 import { changeTitle } from '../redux/title';
+import { authUser } from '../redux/user';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -9,13 +10,8 @@ const Login = () => {
   useEffect(() => {
     dispatch(changeTitle(type));
   }, []);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-  };
-
   return (
-    <Form type={type} handleSubmit={handleSubmit} />
+    <Form type={type} action={authUser} endpoint="sessions" />
   );
 };
 

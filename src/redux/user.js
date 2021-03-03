@@ -2,10 +2,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import API_URL from '../constants/url';
 
-export const signupUser = createAsyncThunk(
-  'user/signup',
-  async ({ username, password }) => {
-    const response = await fetch(`${API_URL}users`, {
+export const authUser = createAsyncThunk(
+  'user/auth',
+  async ({ username, password, endpoint }) => {
+    const response = await fetch(`${API_URL}/${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,14 +30,14 @@ export const userSlice = createSlice({
     data: null,
   },
   extraReducers: {
-    [signupUser.pending]: state => {
+    [authUser.pending]: state => {
       state.loading = true;
     },
-    [signupUser.rejected]: (state, action) => {
+    [authUser.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
-    [signupUser.fulfilled]: (state, action) => {
+    [authUser.fulfilled]: (state, action) => {
       state.loading = false;
       state.data = action.payload;
     },

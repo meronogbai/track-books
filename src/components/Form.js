@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-const Form = ({ type, action }) => {
+const Form = ({ type, action, endpoint }) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +14,7 @@ const Form = ({ type, action }) => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(action({ username, password }));
+    dispatch(action({ username, password, endpoint }));
   };
   return (
     <form onSubmit={handleSubmit} className="Form">
@@ -53,4 +53,5 @@ export default Form;
 Form.propTypes = {
   type: PropTypes.string.isRequired,
   action: PropTypes.func.isRequired,
+  endpoint: PropTypes.string.isRequired,
 };
