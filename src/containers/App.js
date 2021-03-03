@@ -15,7 +15,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            {token ? <Redirect to="/add-book" /> : <Signup />}
+            {token ? <Redirect to="/track" /> : <Signup />}
           </Route>
           <Route exact path="/add-book" component={AddBook} />
           <Route exact path="/track" component={Track} />
