@@ -72,6 +72,31 @@ a {
   padding: 15rem 0;
 }
 
+.Nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #313944;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Nav a {
+  color: inherit;
+  flex: 1;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.Nav a:hover {
+  background-color: var(--primary-color);
+}
+
 /* utils */
 
 .text-center {

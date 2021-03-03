@@ -1,4 +1,6 @@
-import { BrowserRouter, Redirect, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Redirect, Route, Switch,
+} from 'react-router-dom';
 import Home from '../components/Home';
 import Header from '../components/Header';
 import Login from './Login';
@@ -10,12 +12,14 @@ const App = () => {
     <>
       <Header />
       <BrowserRouter>
-        <Route exact path="/">
-          {token ? <Redirect to="/home" /> : <Signup />}
-        </Route>
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
+        <Switch>
+          <Route exact path="/">
+            {token ? <Redirect to="/home" /> : <Signup />}
+          </Route>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+        </Switch>
       </BrowserRouter>
     </>
   );

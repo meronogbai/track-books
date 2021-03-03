@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { getBooks } from '../redux/books';
 import Loading from './Loading';
 import { changeTitle } from '../redux/title';
+import Nav from './Nav';
 
 const Home = () => {
   const history = useHistory();
@@ -27,6 +28,7 @@ const Home = () => {
   return (
     <>
       {content}
+      <Nav />
     </>
   );
 };
