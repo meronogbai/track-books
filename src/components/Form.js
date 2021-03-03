@@ -13,7 +13,7 @@ const Form = ({ type, action, endpoint }) => {
   const token = localStorage.getItem('token');
   useEffect(() => {
     if (token) {
-      history.push('/home');
+      history.push('/add-book');
     }
   }, [token]);
   const handleUsernameChange = e => {

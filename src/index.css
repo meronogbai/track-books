@@ -88,6 +88,7 @@ a {
   color: #fff;
   display: flex;
   justify-content: space-between;
+  font-size: 1.3rem;
 }
 
 .Nav a {
