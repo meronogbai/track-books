@@ -71,6 +71,7 @@ a {
   color: #fff;
   border: none;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .Loading {
