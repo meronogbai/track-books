@@ -29,6 +29,11 @@ body {
   color: var(--main-text-color);
 }
 
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
 .Header {
   background-color: var(--primary-color);
   color: #fff;
@@ -65,4 +70,10 @@ body {
   justify-content: center;
   align-items: center;
   padding: 15rem 0;
+}
+
+/* utils */
+
+.text-center {
+  text-align: center;
 }
