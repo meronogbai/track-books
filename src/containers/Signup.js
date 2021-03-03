@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Form from '../components/Form';
 import { changeTitle } from '../redux/title';
+import { signupUser } from '../redux/user';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -9,10 +10,7 @@ const Signup = () => {
   useEffect(() => {
     dispatch(changeTitle(type));
   }, []);
-  const handleSubmit = e => {
-    e.preventDefault();
-  };
-  return (<Form type="Signup" handleSubmit={handleSubmit} />);
+  return (<Form type="Signup" action={signupUser} />);
 };
 
 export default Signup;
