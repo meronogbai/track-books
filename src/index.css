@@ -59,3 +59,10 @@ body {
   border: none;
   border-radius: 0.5rem;
 }
+
+.Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15rem 0;
+}

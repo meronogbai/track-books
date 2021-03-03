@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Loading from './Loading';
 
 const Form = ({ type, action, endpoint }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.user.loading);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const handleUsernameChange = e => {
@@ -16,35 +18,45 @@ const Form = ({ type, action, endpoint }) => {
     e.preventDefault();
     dispatch(action({ username, password, endpoint }));
   };
+  let content;
+  if (loading) {
+    content = <Loading />;
+  } else {
+    content = (
+      <form onSubmit={handleSubmit} className="Form">
+        <label htmlFor="username">
+          Username
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+            minLength="2"
+            maxLength="20"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+        </label>
+        <label htmlFor="password">
+          Password
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            minLength="6"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </label>
+        <button type="submit" className="Btn">{type}</button>
+      </form>
+    );
+  }
   return (
-    <form onSubmit={handleSubmit} className="Form">
-      <label htmlFor="username">
-        Username
-        <input
-          type="text"
-          name="username"
-          id="username"
-          required
-          minLength="2"
-          maxLength="20"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-      </label>
-      <label htmlFor="password">
-        Password
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          minLength="6"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-      </label>
-      <button type="submit" className="Btn">{type}</button>
-    </form>
+    <>
+      { content }
+    </>
   );
 };
 
