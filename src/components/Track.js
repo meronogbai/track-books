@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
 import { changeTitle } from '../redux/title';
-import { getBooks } from '../redux/books';
+import { getBooks, addChapter } from '../redux/books';
 import Nav from './Nav';
 
 const Track = () => {
@@ -21,8 +21,10 @@ const Track = () => {
       history.push('/signup');
     }
   }, []);
-  const addChapter = book => {
-    console.log(book);
+  const handleClick = book => {
+    if (book.completed_chapters < book.total_chapters) {
+      dispatch(addChapter({ token, book }));
+    }
   };
   let content = null;
   if (books.loading) {
@@ -37,7 +39,7 @@ const Track = () => {
             </h3>
             <div className="chapters">
               {`${book.completed_chapters}/${book.total_chapters}`}
-              <FontAwesomeIcon icon={faPlus} onClick={() => addChapter(book)} className="addChapter" />
+              <FontAwesomeIcon icon={faPlus} onClick={() => handleClick(book)} className="addChapter" />
             </div>
 
           </div>

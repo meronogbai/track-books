@@ -16,6 +16,24 @@ export const getBooks = createAsyncThunk(
   },
 );
 
+export const addChapter = createAsyncThunk(
+  'books/addChapter',
+  async ({ token, book }) => {
+    const response = await fetch(
+      `${API_URL}/books/${book.id}?completed_chapters=${book.completed_chapters + 1}`,
+      {
+        method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+    if (!response.ok) throw new Error(response.statusText);
+    const data = await response.json();
+    return data.book;
+  },
+);
+
 export const booksSlice = createSlice({
   name: 'books',
   initialState: {
@@ -34,6 +52,22 @@ export const booksSlice = createSlice({
     [getBooks.fulfilled]: (state, action) => {
       state.loading = false;
       state.data = action.payload;
+    },
+    [addChapter.pending]: state => {
+      state.loading = true;
+    },
+    [addChapter.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [addChapter.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.data = state.data.map(book => {
+        if (book.id === action.payload.id) {
+          return action.payload;
+        }
+        return book;
+      });
     },
   },
 });
