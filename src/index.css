@@ -34,6 +34,14 @@ a {
   color: var(--primary-color);
 }
 
+/* utils */
+
+.text-center {
+  text-align: center;
+}
+
+/* Comps */
+
 .Header {
   background-color: var(--primary-color);
   color: #fff;
@@ -97,8 +105,17 @@ a {
   background-color: var(--primary-color);
 }
 
-/* utils */
+.Books {
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
 
-.text-center {
-  text-align: center;
+.Book {
+  background-color: #fff;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }

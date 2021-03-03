@@ -3,6 +3,7 @@ import {
 } from 'react-router-dom';
 import AddBook from '../components/AddBook';
 import Header from '../components/Header';
+import Track from '../components/Track';
 import Login from './Login';
 import Signup from './Signup';
 
@@ -17,6 +18,7 @@ const App = () => {
             {token ? <Redirect to="/add-book" /> : <Signup />}
           </Route>
           <Route exact path="/add-book" component={AddBook} />
+          <Route exact path="/track" component={Track} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
         </Switch>

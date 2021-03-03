@@ -11,7 +11,7 @@ const Nav = () => (
       <FontAwesomeIcon icon={faPlus} size="lg" />
       <span>Add Book</span>
     </Link>
-    <Link to="/home">
+    <Link to="/track">
       <FontAwesomeIcon icon={faPoll} size="lg" />
       <span>Track</span>
     </Link>
