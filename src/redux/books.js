@@ -25,6 +25,8 @@ export const addChapter = createAsyncThunk(
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
           completed_chapters: book.completed_chapters + 1,
