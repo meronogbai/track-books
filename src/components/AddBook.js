@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(changeTitle('Add Book'));
     if (!token) {
-      history.push('/signup');
+      history.push('/login');
     }
   }, []);
   const handleSubmit = async e => {

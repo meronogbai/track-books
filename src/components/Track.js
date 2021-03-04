@@ -18,7 +18,7 @@ const Track = () => {
     if (token) {
       dispatch(getBooks(token));
     } else {
-      history.push('/signup');
+      history.push('/login');
     }
   }, []);
   const handleClick = book => {
