@@ -12,8 +12,8 @@ const App = () => {
   const token = localStorage.getItem('token');
   return (
     <>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Switch>
           <Route exact path="/">
             {token ? <Redirect to="/track" /> : <Signup />}
