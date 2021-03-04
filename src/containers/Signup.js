@@ -13,7 +13,7 @@ const Signup = () => {
   }, []);
   return (
     <>
-      <Form type="Signup" action={authUser} endpoint="users" />
+      <Form type={type} action={authUser} endpoint="users" />
       <p className="text-center">
         Do you already have an account?
         {' '}

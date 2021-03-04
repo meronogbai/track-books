@@ -19,7 +19,6 @@ const Nav = () => (
       <FontAwesomeIcon icon={faChartPie} size="lg" />
       <span>Progress</span>
     </Link>
-
   </nav>
 );
 
