@@ -20,12 +20,15 @@ export const addChapter = createAsyncThunk(
   'books/addChapter',
   async ({ token, book }) => {
     const response = await fetch(
-      `${API_URL}/books/${book.id}?completed_chapters=${book.completed_chapters + 1}`,
+      `${API_URL}/books/${book.id}`,
       {
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        body: JSON.stringify({
+          completed_chapters: book.completed_chapters + 1,
+        }),
       },
     );
     if (!response.ok) throw new Error(response.statusText);
