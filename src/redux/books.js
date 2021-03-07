@@ -44,7 +44,7 @@ export const booksSlice = createSlice({
   initialState: {
     loading: false,
     error: null,
-    data: null,
+    data: [],
   },
   extraReducers: {
     [getBooks.pending]: state => {

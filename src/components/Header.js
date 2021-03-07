@@ -8,7 +8,7 @@ const Header = () => {
   const history = useHistory();
   const token = localStorage.getItem('token');
   const handleClick = () => {
-    localStorage.clear();
+    localStorage.removeItem('token');
     history.push('/login');
   };
   return (

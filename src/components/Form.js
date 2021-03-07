@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Loading from './Loading';
+import { authUser } from '../redux/user';
 
-const Form = ({ type, action, endpoint }) => {
+const Form = ({ type, endpoint }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
@@ -16,21 +17,15 @@ const Form = ({ type, action, endpoint }) => {
       history.push('/track');
     }
   }, [token]);
-  const handleUsernameChange = e => {
-    setUsername(e.target.value);
-  };
-  const handlePasswordChange = e => {
-    setPassword(e.target.value);
-  };
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(action({ username, password, endpoint }));
+    dispatch(authUser({ username, password, endpoint }));
   };
-  let content;
   if (user.loading) {
-    content = <Loading />;
-  } else {
-    content = (
+    return <Loading />;
+  }
+  return (
+    <>
       <form onSubmit={handleSubmit} className="Form">
         <label htmlFor="username">
           Username
@@ -42,7 +37,7 @@ const Form = ({ type, action, endpoint }) => {
             minLength="2"
             maxLength="20"
             value={username}
-            onChange={handleUsernameChange}
+            onChange={e => { setUsername(e.target.value); }}
           />
         </label>
         <label htmlFor="password">
@@ -54,16 +49,24 @@ const Form = ({ type, action, endpoint }) => {
             required
             minLength="6"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={e => { setPassword(e.target.value); }}
           />
         </label>
         <button type="submit" className="Btn">{type}</button>
       </form>
-    );
-  }
-  return (
-    <>
-      { content }
+      { type === 'Signup' ? (
+        <p className="text-center">
+          Do you already have an account?
+          {' '}
+          <Link to="/login">Login</Link>
+        </p>
+      ) : (
+        <p className="text-center">
+          Do you need to make an account?
+          {' '}
+          <Link to="/signup">Signup</Link>
+        </p>
+      )}
     </>
   );
 };
@@ -72,6 +75,5 @@ export default Form;
 
 Form.propTypes = {
   type: PropTypes.string.isRequired,
-  action: PropTypes.func.isRequired,
   endpoint: PropTypes.string.isRequired,
 };

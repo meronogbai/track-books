@@ -1,9 +1,6 @@
-import {
-  faChartPie, faPlus, faPoll,
-} from '@fortawesome/free-solid-svg-icons';
+import { faChartPie, faPlus, faPoll } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const { Link } = require('react-router-dom');
+import { Link } from 'react-router-dom';
 
 const Nav = () => (
   <nav className="Nav">
