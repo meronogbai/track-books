@@ -52,7 +52,7 @@ export const booksSlice = createSlice({
     },
     [getBooks.rejected]: (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.error.message;
     },
     [getBooks.fulfilled]: (state, action) => {
       state.loading = false;
@@ -63,7 +63,7 @@ export const booksSlice = createSlice({
     },
     [addChapter.rejected]: (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.error.message;
     },
     [addChapter.fulfilled]: (state, action) => {
       state.loading = false;
