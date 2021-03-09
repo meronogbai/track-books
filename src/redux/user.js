@@ -36,7 +36,7 @@ export const userSlice = createSlice({
     },
     [authUser.rejected]: (state, action) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = action.error.message;
     },
     [authUser.fulfilled]: (state, action) => {
       state.loading = false;
