@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<form
+  className="Form"
+  onSubmit={[Function]}
+>
+  <input
+    aria-label="Title"
+    id="title"
+    maxLength="50"
+    minLength="2"
+    name="title"
+    onChange={[Function]}
+    placeholder="Title"
+    required={true}
+    type="text"
+    value=""
+  />
+  <input
+    aria-label="Total Chapters"
+    id="total_chapters"
+    max="999"
+    min="1"
+    name="total_chapters"
+    onChange={[Function]}
+    placeholder="Total Chapters"
+    required={true}
+    type="number"
+    value=""
+  />
+  <input
+    aria-label="Completed Chapters"
+    id="completed_chapters"
+    max=""
+    min="0"
+    name="completed_chapters"
+    onChange={[Function]}
+    placeholder="Completed Chapters"
+    required={true}
+    type="number"
+    value=""
+  />
+  <button
+    className="Btn"
+    type="submit"
+  >
+    Add Book
+  </button>
+</form>
+`;
