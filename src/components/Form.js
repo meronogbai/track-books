@@ -14,7 +14,7 @@ const Form = ({ type, endpoint }) => {
   const token = localStorage.getItem('token');
   useEffect(() => {
     if (token) {
-      history.push('/track');
+      history.push('/');
     }
   }, [token]);
   const handleSubmit = e => {

@@ -60,7 +60,7 @@ a {
 }
 
 .Form {
-  padding: 5rem 0;
+  padding: 5rem;
   margin-top: 5rem;
   background-color: #fff;
   display: flex;
@@ -72,7 +72,7 @@ a {
 }
 
 .Form input {
-  margin-left: 1rem;
+  width: 100%;
 }
 
 .Btn {
