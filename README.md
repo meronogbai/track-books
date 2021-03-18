@@ -2,7 +2,7 @@
 
 > Track books is a full-stack application that lets users track the books they're reading. This repo hosts the code for the frontend of the application. To view the code for the backend, go to [Track Books API](https://github.com/meronokbay/track-books-api/).
 
-![screenshot](./public/app_screenshot.png)
+![screenshot](./public/app_screenshot.jpg)
 
 - A user can signup and login.
 - Logged in user can add books with title, total chapters and completed chapters as parameters.
@@ -11,14 +11,19 @@
 
 ## Built With
 
-- HTML, CSS & Javascript
 - React
 - Redux Toolkit
 - Font Awesome
 
-## Live Link
+## Live Demo
 
-[Live Link](https://track-books.netlify.app/)
+[Track Books](https://track-books.netlify.app/)
+
+### Test Account
+
+Userame: test_user
+
+Password: 123456
 
 ## Getting Started
 

@@ -36,6 +36,13 @@ a {
 
 /* utils */
 
+.error {
+  background-color: rgb(214, 82, 82);
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
 .text-center {
   text-align: center;
 }
@@ -60,8 +67,8 @@ a {
 }
 
 .Form {
-  padding: 5rem 0;
-  margin-top: 5rem;
+  padding: 5rem;
+  margin-top: 15rem;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -72,7 +79,7 @@ a {
 }
 
 .Form input {
-  margin-left: 1rem;
+  width: 100%;
 }
 
 .Btn {

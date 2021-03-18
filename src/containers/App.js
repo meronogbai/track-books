@@ -16,7 +16,7 @@ const App = () => (
       <ProtectedRoute exact path="/add-book" component={AddBook} />
       <ProtectedRoute exact path="/track" component={Track} />
       <ProtectedRoute exact path="/progress" component={Progress} />
-      <ProtectedRoute component={Track} />
+      <ProtectedRoute component={AddBook} />
     </Switch>
   </BrowserRouter>
 );

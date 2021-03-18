@@ -1,14 +1,17 @@
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { logout } from '../redux/user';
 
 const Header = () => {
-  const title = useSelector(state => state.title);
   const history = useHistory();
+  const dispatch = useDispatch();
+  const title = useSelector(state => state.title);
   const token = localStorage.getItem('token');
   const handleClick = () => {
     localStorage.removeItem('token');
+    dispatch(logout());
     history.push('/login');
   };
   return (
