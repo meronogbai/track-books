@@ -26,6 +26,7 @@ const Form = ({ type, endpoint }) => {
   }
   return (
     <>
+      {user.error && <div className="error">{user.error}</div>}
       <form onSubmit={handleSubmit} className="Form">
         <label htmlFor="username">
           Username

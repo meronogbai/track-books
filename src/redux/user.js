@@ -30,6 +30,13 @@ export const userSlice = createSlice({
     error: null,
     data: null,
   },
+  reducers: {
+    logout: () => ({
+      loading: false,
+      error: null,
+      data: null,
+    }),
+  },
   extraReducers: {
     [authUser.pending]: state => {
       state.loading = true;
@@ -44,5 +51,6 @@ export const userSlice = createSlice({
     },
   },
 });
+export const { logout } = userSlice.actions;
 
 export default userSlice.reducer;
