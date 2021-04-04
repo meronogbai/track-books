@@ -4,6 +4,9 @@
 
 ![screenshot](./public/app_screenshot.jpg)
 
+
+## Features
+
 - A user can signup and login.
 - Logged in user can add books with title, total chapters and completed chapters as parameters.
 - Logged in user can track books and increase the completed chapters.
@@ -35,27 +38,40 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-Clone the repo
 
 ```bash
-  git clone https://github.com/meronokbay/track-books
+# Clone the repo
+git clone https://github.com/meronokbay/track-books
+
+# cd into the cloned repo
+cd track-books
 ```
 
 ### Install
 
-`cd` in the cloned repo and execute `npm i`.
+```bash
+npm install
+```
 
 ### Usage
 
-Execte `npm start` to view the project in your default browser.
+```bash
+# Serve the app in your default browser
+npm start
+```
 
 ### Run tests
 
-Execute `npm test` to run the tests.
+```bash
+npm test
+```
 
 ### Deployment
 
-Execute `npm run build` to compile the app for production.
+```bash
+# Compile the app for production
+npm run build
+```
 
 ## Author
 
@@ -75,7 +91,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-The app's design was inspired by [Bodytrackit](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI)
+The app's design was inspired by [Bodytrackit](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI).
 
 ## 📝 License
 
