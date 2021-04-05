@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { changeTitle } from '../redux/title';
 import Loading from './Loading';
 import API_URL from '../constants/url';
@@ -31,6 +32,7 @@ const AddBook = () => {
       }),
     });
     if (!response.ok) throw new Error(response.statusText);
+    toast.success(`${title} was added.`);
     setLoading(false);
     setTitle('');
     setTotalChapters('');
