@@ -5,6 +5,7 @@ import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
 import { changeTitle } from '../redux/title';
 import { getBooks, addChapter } from '../redux/books';
+import API_URL from '../constants/url';
 
 const Track = () => {
   const dispatch = useDispatch();
@@ -14,10 +15,21 @@ const Track = () => {
     dispatch(changeTitle('Track'));
     dispatch(getBooks(token));
   }, []);
-  const handleClick = book => {
+  const handleAddClick = book => {
     if (book.completed_chapters < book.total_chapters) {
       dispatch(addChapter({ token, book }));
     }
+  };
+  const handleDeleteClick = book => {
+    fetch(
+      `${API_URL}/books/${book.id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    ).then(() => dispatch(getBooks(token)));
   };
   if (books.loading) {
     return <Loading />;
@@ -31,8 +43,8 @@ const Track = () => {
           </h3>
           <div className="chapters">
             {`${book.completed_chapters}/${book.total_chapters}`}
-            <FontAwesomeIcon icon={faPlus} onClick={() => handleClick(book)} className="addChapter" />
-            <FontAwesomeIcon icon={faTrash} className="deleteChapter" />
+            <FontAwesomeIcon icon={faPlus} onClick={() => handleAddClick(book)} className="addChapter" />
+            <FontAwesomeIcon icon={faTrash} onClick={() => handleDeleteClick(book)} className="deleteChapter" />
           </div>
 
         </div>
