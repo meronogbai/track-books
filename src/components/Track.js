@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
 import { changeTitle } from '../redux/title';
 import { getBooks, addChapter } from '../redux/books';
@@ -32,6 +32,7 @@ const Track = () => {
           <div className="chapters">
             {`${book.completed_chapters}/${book.total_chapters}`}
             <FontAwesomeIcon icon={faPlus} onClick={() => handleClick(book)} className="addChapter" />
+            <FontAwesomeIcon icon={faTrash} className="deleteChapter" />
           </div>
 
         </div>

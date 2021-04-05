@@ -5,6 +5,7 @@
 :root {
   --primary-color: #42b5e8;
   --secondary-color: #97e493;
+  --danger-color: #e85642;
   --main-bg-color: #f1f2f3;
   --main-text-color: #5b8092;
 }
@@ -135,6 +136,12 @@ a {
 
 .addChapter {
   color: var(--secondary-color);
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.deleteChapter {
+  color: var(--danger-color);
   cursor: pointer;
   margin-left: 1rem;
 }
