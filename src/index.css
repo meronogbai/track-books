@@ -36,13 +36,6 @@ a {
 
 /* utils */
 
-.error {
-  background-color: rgb(214, 82, 82);
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-}
-
 .text-center {
   text-align: center;
 }

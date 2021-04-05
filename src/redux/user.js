@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import API_URL from '../constants/url';
 
 export const authUser = createAsyncThunk(
@@ -16,8 +17,8 @@ export const authUser = createAsyncThunk(
         password,
       }),
     });
-    if (!response.ok) throw new Error(response.statusText);
     const data = await response.json();
+    if (!response.ok) throw new Error(data.failure);
     localStorage.setItem('token', data.jwt);
     return data;
   },
@@ -43,6 +44,7 @@ export const userSlice = createSlice({
     },
     [authUser.rejected]: (state, action) => {
       state.loading = false;
+      toast.error(action.error.message);
       state.error = action.error.message;
     },
     [authUser.fulfilled]: (state, action) => {
@@ -51,6 +53,7 @@ export const userSlice = createSlice({
     },
   },
 });
+
 export const { logout } = userSlice.actions;
 
 export default userSlice.reducer;
