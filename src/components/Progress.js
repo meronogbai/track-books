@@ -19,9 +19,9 @@ const Progress = () => {
     content = <Loading />;
   } else if (books.data) {
     content = (
-      <div className="Books ProgressBooks">
+      <div className="ProgressBooks">
         {books.data.map(book => (
-          <div className="Book ProgressBook" key={book.id}>
+          <div className="ProgressBook" key={book.id}>
             <CircularProgressbar
               value={book.completed_chapters}
               maxValue={book.total_chapters}

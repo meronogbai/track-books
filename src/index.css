@@ -146,11 +146,17 @@ a {
   margin-left: 1rem;
 }
 
-.ProgressBook {
-  width: 200px;
-  height: 200px;
+.ProgressBooks {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 6rem;
 }
 
-.ProgressBooks {
-  align-items: center;
+.ProgressBook {
+  flex-basis: 30rem;
+  background-color: #fff;
+  padding: 1.5rem;
 }
